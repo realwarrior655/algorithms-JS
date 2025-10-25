@@ -1,6 +1,6 @@
 
 
-//recursive
+//recursivo
 export default function binarySearchRecursive(arr, x, low, high) {
     if (low === void 0) { low = 0; }
     if (high === void 0) { high = arr.length - 1; }
@@ -20,7 +20,7 @@ export default function binarySearchRecursive(arr, x, low, high) {
         return "The item has been not found";
     }
 }
-//interactive
+//interactivo
 export default function binarySearchInteractive(arr, x, low, high) {
     if (low === void 0) { low = 0; }
     if (high === void 0) { high = arr.length - 1; }

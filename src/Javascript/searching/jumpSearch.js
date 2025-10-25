@@ -1,25 +1,26 @@
-// QuickSort.js
+// Jump Search
 
-export default function QuickSort(items) {
-    var length = items.length;
-    if (length <= 1) {
-        return items;
-    }
-    var PIVOT = items[0];
-    var GREATER = [];
-    var LESSER = [];
-    for (var index = 1; index < length; index++) {
-        if (items[index] > PIVOT) {
-            GREATER.push(items[index]);
+function jumpSearch(arr, target) {
+    const n = arr.length;
+    const step = Math.floor(Math.sqrt(n));
+    let prev = 0;
+
+    // Encontrar el bloque donde puede estar el objetivo
+    while (arr[Math.min(step, n) - 1] < target) {
+        prev = step;
+        if (prev >= n) {
+            return -1; // Target not found
         }
-        else {
-            LESSER.push(items[index]);
+        step += Math.floor(Math.sqrt(n));
+    }
+
+    // Busqueda lineal en el bloque encontrado
+    for (let i = prev; i < Math.min(step, n); i++) {
+        if (arr[i] === target) {
+            return i; // 
         }
     }
-    return QuickSort(LESSER).concat([PIVOT], QuickSort(GREATER));
+
+    return -1; // Target not found
 }
 
-let unordenedList = [3, 5, 1, 2, 7, 6, 4, 10, 8, 9];
-console.log(QuickSort(unordenedList));
-
-//THIS ALGORITHM IS OF A O(logN) complexity.
