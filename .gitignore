@@ -1,0 +1,5 @@
+#Directorios a ignorar
+node_modules/
+dist/
+.env
+.vscode/

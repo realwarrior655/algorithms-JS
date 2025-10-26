@@ -1,25 +1,33 @@
-// QuickSort.js
+// Factorial
 
-export default function QuickSort(items) {
-    var length = items.length;
-    if (length <= 1) {
-        return items;
+//primera forma: INTERACTIVA
+
+function factorial(n) {
+    let resultado = 1;
+    for (let i = 1; i <= n; i++) {
+        resultado *= i;
     }
-    var PIVOT = items[0];
-    var GREATER = [];
-    var LESSER = [];
-    for (var index = 1; index < length; index++) {
-        if (items[index] > PIVOT) {
-            GREATER.push(items[index]);
-        }
-        else {
-            LESSER.push(items[index]);
-        }
-    }
-    return QuickSort(LESSER).concat([PIVOT], QuickSort(GREATER));
+    return resultado;
 }
 
-let unordenedList = [3, 5, 1, 2, 7, 6, 4, 10, 8, 9];
-console.log(QuickSort(unordenedList));
+console.log(factorial(5)); // 120
+console.log(factorial(0)); // 1
 
-//THIS ALGORITHM IS OF A O(logN) complexity.
+
+//segunda forma: RECURSIVA
+
+function factorial(n) {
+    if (n === 0 || n === 1) return 1;
+    return n * factorial(n - 1);
+}
+
+console.log(factorial(5)); // 120
+console.log(factorial(0)); // 1
+
+//tercera forma: RECURSIVA CON OPERADOR TERNARIO
+
+function factorial(n) {
+    return n === 0 || n === 1 ? 1 : n * factorial(n - 1);
+}
+
+//--- El factorial de un número n es el producto de todos los enteros positivos desde 1 hasta n. (n!=n×(n−1)!)
